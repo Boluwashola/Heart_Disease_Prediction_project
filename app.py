@@ -38,10 +38,10 @@ def predict():
         import matplotlib.pyplot as plt
         import os
 
-        classes = model.classes_
+        labels = ['Heart Disease Absent', 'Heart Disease Present']
 
         plt.figure(figsize=(6, 4))
-        plt.bar([str(classes[0]), str(classes[1])], prob, color=['blue', 'red'])
+        plt.bar(labels, prob, color=['blue', 'red'])
         plt.title("Prediction Probability")
         plt.ylim([0, 1])
         plt.ylabel("Probability")
