@@ -20,6 +20,18 @@ h1 {
     color: #0d47a1;
 }
 
+#Form .form_input {
+    padding: 20px;
+    width: 350px;
+    height:2px;
+    border: none;
+    color: #e3f2fd;
+    margin-bottom: 10px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 9px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -38,6 +50,14 @@ input[type="number"] {
     border-radius: 5px;
 }
 
+.form_input::placeholder{
+    color: rgb(142, 142, 143);
+}
+
+.form_input:hover {
+    background-color: #d7eaff;
+    outline: none;
+}
 button {
     background-color: #0d47a1;
     color: white;
@@ -45,8 +65,8 @@ button {
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    display: block;
-    margin: 0 auto;
+    display: flex;
+    margin-top: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -62,4 +82,13 @@ button:hover {
     border: 1px solid #90caf9;
     border-radius: 5px;
     text-align: center;
+}
+
+.footer {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #abd1f0;
+    font-size: 12px;
 }
