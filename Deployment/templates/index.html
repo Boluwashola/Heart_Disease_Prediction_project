@@ -23,6 +23,14 @@
             <button type="submit" class="primary_button">Predict</button>
         </form>
 
+        <div>
+            {% if image_path %}
+            <h3>Prediction Probability Plot</h3>
+            <img src="{{ url_for('static', filename='prob_plot.png') }}" alt="Prediction Probability">
+                    {% endif %}
+
+        </div>
+
         <h2>The Condition Prediction is {{ prediction }}</h2>
         <h4>Probability of Heart Disease: {{ probability }}%</h4>
     </div>

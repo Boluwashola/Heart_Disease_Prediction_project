@@ -29,8 +29,28 @@ def predict():
         ]
         scaled = scaler.transform([data])
         pred = model.predict(scaled)[0]
-        prob = model.predict_proba(scaled)[0][1]
-        return render_template("index.html", prediction=pred, probability=round(prob * 100, 2))
+        prob = model.predict_proba(scaled)[0]
+
+        print("Model classes:", model.classes_)
+        print("Probabilities:", prob)
+
+        
+        import matplotlib.pyplot as plt
+        import os
+
+        classes = model.classes_
+
+        plt.figure(figsize=(6, 4))
+        plt.bar([str(classes[0]), str(classes[1])], prob, color=['blue', 'red'])
+        plt.title("Prediction Probability")
+        plt.ylim([0, 1])
+        plt.ylabel("Probability")
+        plt.grid(axis='y')
+        image_path = os.path.join('static', 'prob_plot.png')
+        plt.savefig(image_path)
+        plt.close()
+        
+        return render_template("index.html", prediction=pred, probability=round(prob[1] * 100, 2), image_path=image_path)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
