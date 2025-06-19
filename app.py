@@ -5,8 +5,8 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 # Load model and scaler
-model = pickle.load(open("models/model.pkl", "rb"))
-scaler = pickle.load(open("models/scaler.pkl", "rb"))
+model = pickle.load(open("Models/model.pkl", "rb"))
+scaler = pickle.load(open("Models/scaler.pkl", "rb"))
 
 @app.route("/")
 def index():
