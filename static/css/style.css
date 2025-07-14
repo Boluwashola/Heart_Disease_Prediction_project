@@ -84,6 +84,23 @@ button:hover {
     text-align: center;
 }
 
+.error {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #ffebee;
+    border: 1px solid #f44336;
+    border-radius: 5px;
+    text-align: center;
+    color: #d32f2f;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
 .footer {
     position: relative;
     text-align: center;

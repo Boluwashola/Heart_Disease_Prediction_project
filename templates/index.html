@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Heart Disease Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
-        <form method="POST" action="/predict" id="Form"><br>
-            <input type="text" name="age" placeholder="Age" required = 'Required' class="form_input"><br>
-            <input type="text" name="cp" placeholder="Cp" required = 'Required' class="form_input"><br>
-            <input type="text" name="trestbps" placeholder="Trestbps" required = 'Required' class="form_input"><br>
-            <input type="text" name="chol" placeholder="Chol" required = 'Required' class="form_input"><br>
-            <input type="text" name="thalach" placeholder="Thalach" required = 'Required' class="form_input"><br>
-            <input type="text" name="exang" placeholder="Exang" required = 'Required' class="form_input"><br>
-            <input type="text" name="oldpeak" placeholder="Oldpeak" required = 'Required' class="form_input"><br>
-            <input type="text" name="slope" placeholder="Slope" required = 'Required' class="form_input"><br>
-            <input type="text" name="ca" placeholder="Ca" required = 'Required' class="form_input"><br>
-            <input type="text" name="thal" placeholder="Thal" required = 'Required' class="form_input"><br>
+        <h1>Heart Disease Prediction</h1>
+        <p>Enter your medical information below to predict heart disease risk:</p>
+        
+        <form method="POST" action="/predict" id="Form">
+            <input type="number" name="age" placeholder="Age (29-77)" required class="form_input" min="29" max="77"><br>
+            <input type="number" name="cp" placeholder="Chest Pain Type (0-3)" required class="form_input" min="0" max="3"><br>
+            <input type="number" name="trestbps" placeholder="Resting Blood Pressure (94-200)" required class="form_input" min="94" max="200"><br>
+            <input type="number" name="chol" placeholder="Cholesterol (126-564)" required class="form_input" min="126" max="564"><br>
+            <input type="number" name="thalach" placeholder="Max Heart Rate (71-202)" required class="form_input" min="71" max="202"><br>
+            <input type="number" name="exang" placeholder="Exercise Induced Angina (0=No, 1=Yes)" required class="form_input" min="0" max="1"><br>
+            <input type="number" name="oldpeak" placeholder="ST Depression (0.0-6.2)" required class="form_input" min="0" max="6.2" step="0.1"><br>
+            <input type="number" name="slope" placeholder="ST Slope (0-2)" required class="form_input" min="0" max="2"><br>
+            <input type="number" name="ca" placeholder="Major Vessels (0-4)" required class="form_input" min="0" max="4"><br>
+            <input type="number" name="thal" placeholder="Thalassemia (0-3)" required class="form_input" min="0" max="3"><br>
 
-            <button type="submit" class="primary_button">Predict</button>
+            <button type="submit" class="primary_button">Predict Heart Disease Risk</button>
         </form>
 
         <div>
@@ -31,8 +34,16 @@
 
         </div>
 
-        <h2>The Condition Prediction is {{ prediction }}</h2>
-        <h4>Probability of Heart Disease: {{ probability }}%</h4>
+        {% if error %}
+        <div class="error">
+            <h3>{{ error }}</h3>
+        </div>
+        {% elif prediction is defined %}
+        <div class="result">
+            <h2>{% if prediction == 1 %}Heart Disease Detected{% else %}No Heart Disease Detected{% endif %}</h2>
+            <h4>Risk Probability: {{ probability }}%</h4>
+        </div>
+        {% endif %}
     </div>
 </body>
 
