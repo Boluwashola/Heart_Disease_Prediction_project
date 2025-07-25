@@ -6,13 +6,14 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     max-width: 700px;
-    margin: 50px auto;
+    margin: 20px auto;
     background: white;
-    padding: 40px;
+    padding: 20px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
     border-radius: 10px;
+    margin-bottom: 80px;
 }
 
 h1 {
@@ -21,15 +22,17 @@ h1 {
 }
 
 #Form .form_input {
-    padding: 20px;
-    width: 350px;
-    height:2px;
-    border: none;
-    color: #e3f2fd;
-    margin-bottom: 10px;
-    border-radius: 20px 20px 20px 20px;
+    padding: 15px;
+    width: 100%;
+    max-width: 350px;
+    height: 20px;
+    border: 1px solid #ccc;
+    color: #333;
+    margin-bottom: 15px;
+    border-radius: 8px;
     box-shadow: 0 0 9px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 .form-group {
@@ -61,14 +64,16 @@ input[type="number"] {
 button {
     background-color: #0d47a1;
     color: white;
-    padding: 12px 25px;
+    padding: 15px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
-    display: flex;
-    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: block;
 }
 
 button:hover {
@@ -102,10 +107,65 @@ img {
 }
 
 .footer {
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     text-align: center;
-    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f4f7f9;
     font-family: 'Segoe UI', sans-serif;
-    color: #abd1f0;
+    color: #666;
     font-size: 12px;
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    #Form .form_input {
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+    
+    .result, .error {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 98%;
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    #Form .form_input {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
 }
